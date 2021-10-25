@@ -1,0 +1,17 @@
+.main-container {
+  height: 100vh;
+  width: calc(99wv - 4rem);
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-left: 4rem;
+  margin-right: 0;
+  flex-direction: row;
+
+  .left-container,
+  .center-container,
+  .right-container {
+    flex: 4;
+    margin:10px;
+  }
+}
