@@ -1,4 +1,5 @@
 import "./sidebar.scss";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -35,17 +36,17 @@ const Sidebar = () => {
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          <Link to="/" className="nav-link">
             <i class="fas fa-user nav-i"></i>
             <span class="link-text">Profile</span>
-          </a>
+          </Link>
         </li>
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
-<i class="fas fa-clock nav-i"></i>
-                       <span class="link-text">Reservations</span>
-          </a>
+          <Link to="/reservations" className="nav-link">
+            <i class="fas fa-clock nav-i"></i>
+            <span class="link-text">Reservations</span>
+          </Link>
         </li>
 
         <li class="nav-item" id="themeButton">

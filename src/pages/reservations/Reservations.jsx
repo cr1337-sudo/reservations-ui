@@ -5,12 +5,25 @@ import Reservation from "../../components/reservation/Reservation";
 const Reservations = () => {
   return (
     <>
-      <Sidebar />
+      // <Sidebar />
       <div class="reservations-container">
         <div class="top-title">
           <h1>Reservations</h1>
         </div>
         <div class="mid-reservations">
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
+          <Reservation />
           <Reservation />
         </div>
       </div>

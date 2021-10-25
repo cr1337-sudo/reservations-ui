@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <>
-    <Sidebar/>
+    // <Sidebar/>
     <div className="main-container">
       <div className="left-container">
         <Jobs />
