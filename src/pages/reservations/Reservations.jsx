@@ -5,7 +5,6 @@ import Reservation from "../../components/reservation/Reservation";
 const Reservations = () => {
   return (
     <>
-      // <Sidebar />
       <div class="reservations-container">
         <div class="top-title">
           <h1>Reservations</h1>

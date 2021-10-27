@@ -1,34 +1,40 @@
+import { useContext } from "react";
 import "./availableHours.scss";
+import { SessionContext } from "../../context/sessionContext/SessionContext";
 
 const AvailableHours = () => {
+  const { hours, isFetching } = useContext(SessionContext);
   return (
+
     <div className="hours-container">
+    {isFetching ? (
+      
+
+      <div class="lds-ring spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    ):(
       <form action="">
-        <div class="inputGroup">
-          <input id="radio1" name="radio" type="radio" />
-          <label for="radio1">8:00HS</label>
-        </div>
-        <div class="inputGroup nonAvailable">
-          <input id="radio2" name="radio" disabled type="radio" />
-          <label for="radio2">9:00HS</label>
-        </div>
-        <div class="inputGroup">
-          <input id="radio3" name="radio" type="radio" />
-          <label for="radio3">10:00HS</label>
-        </div>
-        <div class="inputGroup nonAvailable">
-          <input id="radio6" name="radio" type="radio" />
-          <label for="radio6">10:00HS</label>
-        </div>
-        <div class="inputGroup">
-          <input id="radio5" name="radio" tepe="radio" />
-          <label for="radio5">10:00HS</label>
-        </div>
-        <div class="inputGroup">
-          <input id="radio4" name="radio" type="radio" />
-          <label for="radio4">10:00HS</label>
-        </div>
+        {hours[0]?.hours.map((session) => (
+          <div
+            key={session.hour}
+            className={`inputGroup ${!session.available ? "nonAvailable" : ""}`}
+          >
+            <input
+              id={session.hour}
+              name="radio"
+              disabled={!session.available}
+              type="radio"
+            />
+            <label for={session.hour}>{session.hour}HS</label>
+          </div>
+        ))}
       </form>
+
+    )}
     </div>
   );
 };

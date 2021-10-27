@@ -8,7 +8,6 @@ const Sidebar = () => {
         <li class="logo">
           <a href="#" class="nav-link">
             <span class="link-text logo-text">RESERVAS</span>
-
             <svg
               aria-hidden="true"
               focusable="false"
