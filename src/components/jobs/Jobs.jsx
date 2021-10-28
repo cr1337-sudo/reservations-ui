@@ -1,27 +1,58 @@
 import "./jobs.scss";
 import AvailableJob from "../availableJob/AvailableJob";
 import axios from "axios";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SummaryContext } from "../../context/summaryContext/SummaryContext";
+import { changeServices } from "../../context/summaryContext/SummaryActions.js";
 
 const Jobs = () => {
+  const { dispatch } = useContext(SummaryContext);
   const [data, setData] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const handleSelect = (e) => {
+    selectedItems.includes(e.target.value)
+      ? setSelectedItems(
+          selectedItems.filter((item) => item !== e.target.value)
+        )
+      : setSelectedItems([...selectedItems, e.target.value]);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get("/jobs");
       setData(res.data);
+      setLoading(false)
     };
     fetchData();
   }, [data]);
 
+  useEffect(() => {
+    dispatch(changeServices(selectedItems));
+  }, [selectedItems]);
+
   return (
     <div className="jobs-container">
       <h4 className="title">Available Services</h4>
-      <div className="available-jobs">
-        {data.map((job) => (
-          <AvailableJob title={job.title} desc={job.desc} />
-        ))}
-      </div>
+      {loading ? (
+        <div class="lds-ring spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      ) : (
+        <div className="available-jobs">
+          {data?.map((job) => (
+            <AvailableJob
+              title={job.title}
+              desc={job.desc}
+              handleSelect={handleSelect}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -8,12 +8,12 @@ const SummaryReducer = (state, action) => {
     case "CHANGE_DATE":
       return {
         ...state,
-        date: action.payload,
+        day: action.payload,
       };
     case "CHANGE_HOUR":
       return {
         ...state,
-        hour: action.hour,
+        hour: action.payload,
       };
     default:
       return { ...state };

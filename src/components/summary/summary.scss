@@ -25,6 +25,7 @@
   .services {
     display: flex;
     flex-direction: column;
+    min-height: 180px;
     .service {
       font-weight: 300;
       margin: 4px 0;

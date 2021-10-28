@@ -3,7 +3,7 @@ import SummaryReducer from "./SummaryReducer";
 
 const INITIAL_STATE = {
   services: [],
-  day: null,
+  day:{},
   hour: null,
 };
 
