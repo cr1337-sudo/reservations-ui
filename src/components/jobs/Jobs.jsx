@@ -23,20 +23,20 @@ const Jobs = () => {
     const fetchData = async () => {
       const res = await axios.get("/jobs");
       setData(res.data);
-      setLoading(false)
+      setLoading(false);
     };
     fetchData();
   }, [data]);
 
   useEffect(() => {
     dispatch(changeServices(selectedItems));
-  }, [selectedItems]);
+  }, [selectedItems, dispatch]);
 
   return (
     <div className="jobs-container">
       <h4 className="title">Available Services</h4>
       {loading ? (
-        <div class="lds-ring spinner">
+        <div className="lds-ring spinner">
           <div></div>
           <div></div>
           <div></div>
@@ -46,6 +46,7 @@ const Jobs = () => {
         <div className="available-jobs">
           {data?.map((job) => (
             <AvailableJob
+              key={job.title}
               title={job.title}
               desc={job.desc}
               handleSelect={handleSelect}

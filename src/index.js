@@ -5,14 +5,17 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { SessionContextProvider } from "./context/sessionContext/SessionContext";
 import { SummaryContextProvider } from "./context/summaryContext/SummaryContext";
+import { AuthContextProvider } from "./context/authContext/AuthContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <SessionContextProvider>
-      <SummaryContextProvider>
-        <App />
-      </SummaryContextProvider>
-    </SessionContextProvider>
+    <AuthContextProvider>
+      <SessionContextProvider>
+        <SummaryContextProvider>
+          <App />
+        </SummaryContextProvider>
+      </SessionContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

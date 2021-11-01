@@ -34,7 +34,7 @@ const Calendar = () => {
     );
 
     fetchData();
-  }, [value]);
+  }, [value, dispatch, dispatch2]);
 
   return (
     <div className="calendar-container">

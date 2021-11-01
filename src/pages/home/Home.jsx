@@ -2,7 +2,6 @@ import AvailableHours from "../../components/availableHours/AvailableHours";
 import Calendar from "../../components/calendar/Calendar";
 import Jobs from "../../components/jobs/Jobs";
 import Summary from "../../components/summary/Summary";
-import Sidebar from "../../components/sidebar/Sidebar";
 import "./home.scss";
 
 const Home = () => {

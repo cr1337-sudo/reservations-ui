@@ -1,10 +1,9 @@
 import "./summary.scss";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { SummaryContext } from "../../context/summaryContext/SummaryContext";
 
 const Summary = () => {
   const { services, day, hour } = useContext(SummaryContext);
-  console.log(day)
   return (
     <div className="summary-container">
       <h3 className="title">Summary</h3>
@@ -18,7 +17,7 @@ const Summary = () => {
         <section className="date-data">
           <h4 className="sub-title">Appointment Data*</h4>
           <span className="date-title">
-            Day:{" "}
+            Day:
             <p className="date">
               {day ? `${day.day.day}/${day.day.month}/${day.day.year}` : "Pick a date"}
             </p>
@@ -46,12 +45,11 @@ const Summary = () => {
             name=""
             rows="4"
             placeholder="Additional note"
-            res
           ></textarea>
         </section>
         {/*
      <section className="confirm-data">
-           <button class="button-58">Reserve!</button>
+           <button className="button-58">Reserve!</button>
         </section>
  */}
         <section className="login-register">

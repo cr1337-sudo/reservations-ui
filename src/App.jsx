@@ -1,4 +1,5 @@
 import "./App.css";
+import {useContext} from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,9 +10,10 @@ import Home from "./pages/home/Home";
 import LogReg from "./pages/logReg/LogReg";
 import Reservations from "./pages/reservations/Reservations";
 import Sidebar from "./components/sidebar/Sidebar";
+import {AuthContext} from "./context/authContext/AuthContext"
 
 function App() {
-  const user = true;
+  const {user} = useContext(AuthContext)
   return (
     <Router>
       <Switch>
@@ -19,7 +21,7 @@ function App() {
         {user ? (
           <>
             <Sidebar />
-            <div class="cont">
+            <div className="cont">
               <Route exact path="/">
                 <Home />
               </Route>

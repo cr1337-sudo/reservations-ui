@@ -11,12 +11,12 @@ const AvailableHours = () => {
 
   useEffect(() => {
     dispatch(changeHour(hour));
-  }, [hour]);
+  }, [hour, dispatch]);
 
   return (
     <div className="hours-container">
       {isFetching ? (
-        <div class="lds-ring spinner">
+        <div className="lds-ring spinner">
           <div></div>
           <div></div>
           <div></div>
@@ -39,7 +39,7 @@ const AvailableHours = () => {
                 value={session.hour}
                 onChange={() => setHour(session.hour)}
               />
-              <label for={session.hour}>{session.hour}HS</label>
+              <label htmlFor={session.hour}>{session.hour}HS</label>
             </div>
           ))}
         </form>
