@@ -7,7 +7,10 @@ import { useState, useContext, useEffect } from "react";
 import { SessionContext } from "../../context/sessionContext/SessionContext";
 import { getSessions } from "../../context/sessionContext/apiCalls";
 import { SummaryContext } from "../../context/summaryContext/SummaryContext";
-import { changeDate } from "../../context/summaryContext/SummaryActions.js";
+import {
+  changeDate,
+  changeHour,
+} from "../../context/summaryContext/SummaryActions.js";
 
 const Calendar = () => {
   const [value, setValue] = useState(new Date());
@@ -47,6 +50,7 @@ const Calendar = () => {
           value={value}
           onChange={(newValue) => {
             setValue(newValue);
+            dispatch2(changeHour(""));
           }}
           renderInput={(params) => <TextField {...params} />}
         />

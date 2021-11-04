@@ -26,7 +26,7 @@ const Jobs = () => {
       setLoading(false);
     };
     fetchData();
-  }, [data]);
+  }, []);
 
   useEffect(() => {
     dispatch(changeServices(selectedItems));

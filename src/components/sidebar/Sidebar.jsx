@@ -1,13 +1,16 @@
 import "./sidebar.scss";
 import { Link } from "react-router-dom";
+import {AuthContext} from "../../context/authContext/AuthContext"
+import { useContext } from "react";
 
 const Sidebar = () => {
+  const {user} = useContext(AuthContext)
   return (
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="logo">
           <a href="/" className="nav-link">
-            <span className="link-text logo-text">RESERVAS</span>
+            <span className="link-text logo-text">Hello! {user.name} </span>
             <svg
               aria-hidden="true"
               focusable="false"

@@ -1,23 +1,20 @@
 import "./reservation.scss";
 
-const Reservation = () => {
+const Reservation = ({ data }) => {
+  const { year, month, day, hour, jobs } = data;
   return (
     <div className="card">
       <div className="top-card">
-        <h3>27/03/2022</h3>
+    <h3>{`${day}/${month}/${year} - ${hour}HS`}</h3>
         <hr />
       </div>
       <div className="center-card">
         <ul>
-          <li>
-            <i className="fas fa-chevron-right"></i> Corte de pelo
-          </li>
-          <li>
-            <i className="fas fa-chevron-right"></i> Corte de barba
-          </li>
-          <li>
-            <i className="fas fa-chevron-right"></i> Lavado de cabeza
-          </li>
+          {jobs?.map((job) => (
+            <li>
+              <i className="fas fa-chevron-right"></i> {job}
+            </li>
+          ))}
         </ul>
       </div>
       <div className="footer-card">
