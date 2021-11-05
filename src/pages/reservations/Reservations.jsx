@@ -19,7 +19,7 @@ const Reservations = () => {
     <>
       <div className="reservations-container">
         <div className="top-title">
-          <h1>Reservations</h1>
+          <h2>RESERVATIONS</h2>
         </div>
         <div className="mid-reservations">
           {data?.map((res) => (

@@ -5,11 +5,12 @@ import { useContext } from "react";
 
 const Sidebar = () => {
   const {user} = useContext(AuthContext)
+  console.log(user)
   return (
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="logo">
-          <a href="/" className="nav-link">
+          <Link to="/" className="nav-link">
             <span className="link-text logo-text">Hello! {user.name} </span>
             <svg
               aria-hidden="true"
@@ -34,11 +35,11 @@ const Sidebar = () => {
                 ></path>
               </g>
             </svg>
-          </a>
+          </Link>
         </li>
 
         <li className="nav-item">
-          <Link to="/" className="nav-link">
+          <Link to={`/profile/${user._id}`} className="nav-link">
             <i className="fas fa-user nav-i"></i>
             <span className="link-text">Profile</span>
           </Link>

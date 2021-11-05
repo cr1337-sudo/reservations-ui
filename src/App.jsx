@@ -1,5 +1,5 @@
 import "./App.css";
-import {useContext} from "react";
+import { useContext } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,10 +10,11 @@ import Home from "./pages/home/Home";
 import LogReg from "./pages/logReg/LogReg";
 import Reservations from "./pages/reservations/Reservations";
 import Sidebar from "./components/sidebar/Sidebar";
-import {AuthContext} from "./context/authContext/AuthContext"
+import Profile from "./pages/profile/Profile";
+import { AuthContext } from "./context/authContext/AuthContext";
 
 function App() {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   return (
     <Router>
       <Switch>
@@ -28,6 +29,9 @@ function App() {
 
               <Route path="/reservations">
                 <Reservations />
+              </Route>
+              <Route path="/profile/:id">
+                <Profile />
               </Route>
             </div>
           </>
