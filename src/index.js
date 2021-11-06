@@ -6,9 +6,11 @@ import reportWebVitals from "./reportWebVitals";
 import { SessionContextProvider } from "./context/sessionContext/SessionContext";
 import { SummaryContextProvider } from "./context/summaryContext/SummaryContext";
 import { AuthContextProvider } from "./context/authContext/AuthContext";
+import {ThemeContextProvider} from "./context/themeContext/ThemeContext"
 
 ReactDOM.render(
   <React.StrictMode>
+  <ThemeContextProvider>
     <AuthContextProvider>
       <SessionContextProvider>
         <SummaryContextProvider>
@@ -16,6 +18,7 @@ ReactDOM.render(
         </SummaryContextProvider>
       </SessionContextProvider>
     </AuthContextProvider>
+  </ThemeContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

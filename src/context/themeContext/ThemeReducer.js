@@ -1,12 +1,14 @@
-const ThemeReducer = (action, state) => {
+const ThemeReducer = (state,action) => {
+  // console.log(state);
+  console.log(state)
   switch (action.type) {
     case "SET_THEME_LIGHT":
       return {
-        theme: "light",
+        theme: action.payload,
       };
     case "SET_THEME_DARK":
       return {
-        theme: "dark",
+        theme: action.payload,
       };
     default:
       return { ...state };

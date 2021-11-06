@@ -1,7 +1,9 @@
-export const setThemeDark = ()=>({
-  type:"SET_THEME_DARK"
+export const setThemeLight = ()=>({
+  type:"SET_THEME_LIGHT",
+  payload: "light"
 })
 
-export const setThemeLight = ()=>({
-  type:"SET_THEME_LIGHT"
+export const setThemeDark = ()=>({
+  type:"SET_THEME_DARK",
+  payload:"dark"
 })
