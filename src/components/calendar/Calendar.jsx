@@ -11,9 +11,11 @@ import {
   changeDate,
   changeHour,
 } from "../../context/summaryContext/SummaryActions.js";
+import { ThemeContext } from "../../context/themeContext/ThemeContext";
 
 const Calendar = () => {
   const [value, setValue] = useState(new Date());
+  const {theme} = useContext(ThemeContext)
   const { dispatch } = useContext(SessionContext);
   const { dispatch: dispatch2 } = useContext(SummaryContext);
 
@@ -40,8 +42,10 @@ const Calendar = () => {
   }, [value, dispatch, dispatch2]);
 
   return (
-    <div className="calendar-container">
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <div className={`calendar-container ${theme === "light" ? "light" : undefined}`}>
+    <div class="calendar">
+      <LocalizationProvider dateAdapter={AdapterDateFns} className
+    ="calendar">
         <StaticDatePicker
           displayStaticWrapperAs="desktop"
           openTo="day"
@@ -55,6 +59,7 @@ const Calendar = () => {
           renderInput={(params) => <TextField {...params} />}
         />
       </LocalizationProvider>
+    </div>
     </div>
   );
 };

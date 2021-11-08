@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .calendar-container{
   display: flex;
   flex-direction: column;
@@ -9,5 +11,13 @@
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   color: black;
+
+  &.light{
+  background-color:$bgComponents;
+  }
 }
 
+
+.calendar{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

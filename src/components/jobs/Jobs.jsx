@@ -4,9 +4,11 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { SummaryContext } from "../../context/summaryContext/SummaryContext";
 import { changeServices } from "../../context/summaryContext/SummaryActions.js";
+import { ThemeContext } from "../../context/themeContext/ThemeContext";
 
 const Jobs = () => {
   const { dispatch } = useContext(SummaryContext);
+  const {theme} = useContext(ThemeContext)
   const [data, setData] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -33,7 +35,7 @@ const Jobs = () => {
   }, [selectedItems, dispatch]);
 
   return (
-    <div className="jobs-container">
+    <div className={`jobs-container ${theme === "light" ? "light" : undefined}`}>
       <h4 className="title">Available Services</h4>
       {loading ? (
         <div className="lds-ring spinner">

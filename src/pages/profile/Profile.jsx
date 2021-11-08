@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import "./profile.scss";
 import { AuthContext } from "../../context/authContext/AuthContext";
-import { login } from "../../context/authContext/apiCalls";
+import {ThemeContext} from "../../context/themeContext/ThemeContext"
 import axios from "axios";
 
 const Profile = () => {
   const { user, dispatch } = useContext(AuthContext);
+  const {theme} = useContext(ThemeContext
+  )
   const [edit, setEdit] = useState(false);
   const [userDataEdit, setUserDataEdit] = useState({
     name: user.name,
@@ -72,7 +74,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="profile-container">
+    <div className={`profile-container ${theme === "light" ? "light" : ""}`}>
       <div class="top-title">
         <h2>PROFILE</h2>
       </div>

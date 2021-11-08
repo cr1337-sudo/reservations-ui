@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import { useContext } from "react";
 import {
   BrowserRouter as Router,
@@ -12,9 +12,11 @@ import Reservations from "./pages/reservations/Reservations";
 import Sidebar from "./components/sidebar/Sidebar";
 import Profile from "./pages/profile/Profile";
 import { AuthContext } from "./context/authContext/AuthContext";
+import { ThemeContext } from "./context/themeContext/ThemeContext"
 
 function App() {
   const { user } = useContext(AuthContext);
+  const {theme} = useContext(ThemeContext)
   return (
     <Router>
       <Switch>
@@ -22,7 +24,7 @@ function App() {
         {user ? (
           <>
             <Sidebar />
-            <div className="cont">
+          <div className={`cont ${theme === "light" ? "light" :""}`}>
               <Route exact path="/">
                 <Home />
               </Route>

@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .hours-container {
   position: relative;
   background-color: rgba(40, 41, 61, 1);
@@ -10,6 +12,14 @@
   align-items: center;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+  &.light {
+    background-color: $bgComponents;
+
+    .inputGroup{
+      background-color: $secondaryColor;
+    }
+  }
 
   // Spinner
   .lds-ring {
@@ -63,6 +73,9 @@
     display: block;
     margin: 5px;
     position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+
 
     label {
       height: 100%;

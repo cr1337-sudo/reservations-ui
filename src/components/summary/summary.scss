@@ -1,3 +1,5 @@
+@import "../../variables";
+
 .summary-container {
   position: relative;
   display: flex;
@@ -8,6 +10,10 @@
   height: 100%;
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+ &.light{
+  background-color:$bgComponents;
+  }
 
   .title {
     align-self: center;
@@ -25,9 +31,9 @@
   .services {
     display: flex;
     flex-direction: column;
-    min-height: 180px;
+    min-height: 160px;
     .service {
-      font-weight: 300;
+      font-weight: 400;
       margin: 4px 0;
     }
   }
@@ -74,6 +80,7 @@
       padding: 5px;
       overflow: scroll;
       resize: none;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     }
     .error{
       text-align:center ;

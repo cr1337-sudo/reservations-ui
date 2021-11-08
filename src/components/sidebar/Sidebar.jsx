@@ -2,19 +2,18 @@ import "./sidebar.scss";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { ThemeContext } from "../../context/themeContext/ThemeContext";
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import {
   setThemeLight,
   setThemeDark,
 } from "../../context/themeContext/ThemeActions";
-import { useState } from "react";
 
 const Sidebar = () => {
   const { user } = useContext(AuthContext);
   const { theme, dispatch } = useContext(ThemeContext);
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar`}>
       <ul className="navbar-nav">
         <li className="logo">
           <Link to="/" className="nav-link">

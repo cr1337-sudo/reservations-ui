@@ -3,9 +3,11 @@ import { SessionContext } from "../../context/sessionContext/SessionContext";
 import { useContext, useEffect, useState } from "react";
 import { SummaryContext } from "../../context/summaryContext/SummaryContext";
 import { changeHour } from "../../context/summaryContext/SummaryActions.js";
+import { ThemeContext } from "../../context/themeContext/ThemeContext";
 
 const AvailableHours = () => {
   const { hours, isFetching } = useContext(SessionContext);
+  const {theme} = useContext(ThemeContext)
   const { dispatch } = useContext(SummaryContext);
   const [hour, setHour] = useState("");
 
@@ -14,7 +16,7 @@ const AvailableHours = () => {
   }, [hour, dispatch]);
 
   return (
-    <div className="hours-container">
+    <div className={`hours-container  ${theme === "light" ? "light" : undefined}`}>
       {isFetching ? (
         <div className="lds-ring spinner">
           <div></div>

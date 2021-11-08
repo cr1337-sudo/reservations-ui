@@ -3,12 +3,14 @@ import { useContext, useEffect, useState } from "react";
 import { SummaryContext } from "../../context/summaryContext/SummaryContext";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { useHistory } from "react-router-dom";
+import { ThemeContext } from "../../context/themeContext/ThemeContext"
 import axios from "axios";
 
 const Summary = () => {
   const [note, setNote] = useState("");
   const [error, setError] = useState(null);
   const { services, day, hour } = useContext(SummaryContext);
+  const {theme} = useContext(ThemeContext)
   const { user } = useContext(AuthContext);
   const history = useHistory();
 
@@ -61,7 +63,7 @@ const Summary = () => {
       .catch(() => setError("Error, please check your data"));
   };
   return (
-    <div className="summary-container">
+    <div className={`summary-container ${theme === "light" ? "light" : undefined}`}>
       <h3 className="title">Summary</h3>
       <div className="summary-data">
         <section className="services">
