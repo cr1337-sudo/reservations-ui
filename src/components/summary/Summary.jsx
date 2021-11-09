@@ -87,11 +87,6 @@ const Summary = () => {
           </span>
           <span className="date-warn">
             <p>
-              *A contact number will be provided upon confirmation of your
-              reservation.
-            </p>
-
-            <p>
               Please remember to confirm your attendance beforehand, preferably
               24 hours previous to the arranged date, otherwise the appointment
               will be cancelled.
