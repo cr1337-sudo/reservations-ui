@@ -1,11 +1,13 @@
 import { useState, useContext } from "react";
 import "./logReg.scss";
 import { AuthContext } from "../../context/authContext/AuthContext";
-import {errorNull} from "../../context/authContext/AuthActions"
+import { errorNull } from "../../context/authContext/AuthActions";
 import { login, register } from "../../context/authContext/apiCalls";
 
+import { ThemeContext } from "../../context/themeContext/ThemeContext.js";
 const LogReg = () => {
   const { dispatch, error } = useContext(AuthContext);
+  const { theme } = useContext(ThemeContext);
   const [loginTarget, setLoginTarget] = useState(false);
   const [registerInfo, setRegisterInfo] = useState({});
   const [loginInfo, setLoginInfo] = useState({});
@@ -20,8 +22,8 @@ const LogReg = () => {
 
   const handleSubmitRegister = async (e) => {
     e.preventDefault();
-    await register(dispatch, registerInfo)
-      };
+    await register(dispatch, registerInfo);
+  };
 
   //Login
   const handleChangeLogin = (e) => {
@@ -38,7 +40,7 @@ const LogReg = () => {
     }
   };
   return (
-    <div className="c">
+    <div className={`c ${theme === "light" ? "light" : ""}`}>
       <div
         className={`container ${loginTarget ? "right-panel-active" : ""}`}
         id="container"
@@ -47,8 +49,8 @@ const LogReg = () => {
           <form action="#" method="POST" onSubmit={handleSubmitRegister}>
             <h1 className="h1-active">Create Account</h1>
             <div className="social-container">
-            {error && <p className="error">{error}</p>}
-                         </div>
+              {error && <p className="error">{error}</p>}
+            </div>
             <input
               type="text"
               placeholder="Name"
@@ -86,8 +88,8 @@ const LogReg = () => {
           <form action="#" method="POST" onSubmit={handleSubmitLogin}>
             <h1 className="h1-active">Sign in</h1>
             <div className="social-container">
-            {error && <p className="error">{error}</p>}
-                         </div>
+              {error && <p className="error">{error}</p>}
+            </div>
             <span>or use your account</span>
             <input
               type="email"
@@ -121,7 +123,7 @@ const LogReg = () => {
                 id="signIn"
                 onClick={() => {
                   setLoginTarget(!loginTarget);
-                  dispatch(errorNull())
+                  dispatch(errorNull());
                 }}
               >
                 Sign In
@@ -135,7 +137,7 @@ const LogReg = () => {
                 id="signUp"
                 onClick={() => {
                   setLoginTarget(!loginTarget);
-                  dispatch(errorNull())
+                  dispatch(errorNull());
                 }}
               >
                 Sign Up
